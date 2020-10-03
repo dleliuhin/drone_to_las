@@ -9,13 +9,14 @@ cmake_minimum_required( VERSION 3.10 )
 
 #========================================================================================
 
+set( CMAKE_BUILD_TYPE "Debug" )
+
 option( GUI FALSE )
 
 if ( GUI )
-    set( CMAKE_BUILD_TYPE "Debug" )
     add_definitions( -DGUI )
 else()
-    set( CMAKE_BUILD_TYPE "Release" )
+#    set( CMAKE_BUILD_TYPE "Release" )
 endif()
 
 #========================================================================================
@@ -63,5 +64,9 @@ target_link_libraries( ${PROJECT_NAME}
     ${V_LIBRARIES}
     Qt5::Core
     -ldl )
+
+#========================================================================================
+
+set( QT_QMAKE_EXECUTABLE )
 
 #========================================================================================

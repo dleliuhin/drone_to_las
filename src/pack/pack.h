@@ -44,6 +44,22 @@ private:
 
 
 //=======================================================================================
+struct PosData
+{
+    double timestamp {0.};
+    double longitude {0.};
+    double latitude {0.};
+    double height {0.};
+    double roll {0.};
+    double pitch {0.};
+    double yaw {0.};
+    double easting {0.};
+    double northing {0.};
+};
+//=======================================================================================
+
+
+//=======================================================================================
 /*! \struct Pack
  * \param data ZCM data entry.
  */

@@ -16,6 +16,11 @@
 
 #include "vsignal.h"
 
+#include <cstdlib>
+#include <string>
+#include <cstdio>
+#include <list>
+
 //=======================================================================================
 /*! \class Decode
  * \brief ZCM message decoder class.
@@ -49,6 +54,10 @@ private:
 
     //! \brief Data aggregated from multiple sensors.
     Pack _pack;
+
+    std::list<PosData> _pos_data;
+
+    //-----------------------------------------------------------------------------------
 
     void _pos( const std::string& path );
     void _lvx( const std::string& path );

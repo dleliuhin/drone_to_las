@@ -7,3 +7,6 @@
 [submodule "external/cpp_codestyle"]
 	path = external/cpp_codestyle
 	url = https://github.com/dleliuhin/cpp_codestyle.git
+[submodule "external/Livox-SDK"]
+	path = external/Livox-SDK
+	url = https://github.com/dleliuhin/Livox-SDK.git
