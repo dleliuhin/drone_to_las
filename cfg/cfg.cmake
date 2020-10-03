@@ -3,7 +3,7 @@
 INCLUDE_DIRECTORIES( cfg )
 
 set( CFG
-    cfg/cservice_template.cfg
+    cfg/lvx_to_las.cfg
     cfg/sanalyzer.cfg
    )
 

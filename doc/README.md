@@ -11,7 +11,7 @@ Extended service documentation.
 Start doxygen code autodoc:<br/>
 
 ```
-cd cservice_template
+cd lvx_to_las
 git checkout release
 ./scripts/doc.sh
 ```

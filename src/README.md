@@ -34,11 +34,11 @@ src/
 │   └── README.md
 ├── README.md
 ├── src.cmake
-└── subscribe
+└── decode
     ├── README.md
-    ├── subscribe.cmake
-    ├── subscribe.cpp
-    └── subscribe.h
+    ├── decode.cmake
+    ├── decode.cpp
+    └── decode.h
 ```
 
 ---

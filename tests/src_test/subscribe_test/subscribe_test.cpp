@@ -1,5 +1,5 @@
-/*! \file subscribe_test.cpp
- * \brief SubscribeTest class implementation.
+/*! \file decode_test.cpp
+ * \brief DecodeTest class implementation.
 
  * \authors Dmitrii Leliuhin
  * \date July 2020
@@ -7,33 +7,33 @@
 
 //=======================================================================================
 
-#include "subscribe_test.h"
-#include "subscribe.h"
+#include "decode_test.h"
+#include "decode.h"
 #include "publish.h"
 #include "config.h"
 
 //=======================================================================================
-/*! \test TEST( SubscribeTest, test_constructor )
+/*! \test TEST( DecodeTest, test_constructor )
  * \brief Various constructors.
  */
-TEST( SubscribeTest, test_constructor )
+TEST( DecodeTest, test_constructor )
 {
-    Subscribe sub1;
+    Decode sub1;
     Config conf;
-    Subscribe sub2( conf );
+    Decode sub2( conf );
 }
 //=======================================================================================
-/*! \test TEST( SubscribeTest, test_receive )
+/*! \test TEST( DecodeTest, test_receive )
  * \brief Receive ZCM message.
  */
-TEST( SubscribeTest, test_receive )
+TEST( DecodeTest, test_receive )
 {
     Config config;
     auto channel = "TestChannel";
     config.send.channel.full = channel;
     config.receive.channel.full = channel;
 
-    Subscribe sub( config );
+    Decode sub( config );
 
     Publish pub( config );
     pub.send(0);

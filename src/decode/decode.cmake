@@ -2,9 +2,9 @@
 
 include_directories( ${CMAKE_CURRENT_LIST_DIR} )
 
-set( SUBSCRIBE
-    ${CMAKE_CURRENT_LIST_DIR}/subscribe.h
-    ${CMAKE_CURRENT_LIST_DIR}/subscribe.cpp
+set( DECODE
+    ${CMAKE_CURRENT_LIST_DIR}/decode.h
+    ${CMAKE_CURRENT_LIST_DIR}/decode.cpp
    )
 
 #========================================================================================

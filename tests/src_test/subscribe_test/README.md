@@ -1,4 +1,4 @@
-# Subscribe tests
+# Decode tests
 
 ---
 

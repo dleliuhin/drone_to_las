@@ -1,7 +1,7 @@
 #!/bin/bash
-rm -rf ../build-cservice_template*
-rm ../cservice_template.tar.gz
+rm -rf ../build-lvx_to_las*
+rm ../lvx_to_las.tar.gz
 rm -rf build/*
-rm -rf cservice_template.pro.*
+rm -rf lvx_to_las.pro.*
 rm CMakeLists.txt.*
 rm -rf tests/build*

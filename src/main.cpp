@@ -10,7 +10,7 @@
 
 //=======================================================================================
 
-#include "subscribe.h"
+#include "decode.h"
 #include "config.h"
 #include "core.h"
 #include "publish.h"
@@ -41,7 +41,7 @@ int main( int argc, char **argv )
     // Parse config && create PID
 
     service::arguments sargs( argc, argv,
-                            "cservice_template",
+                            "lvx_to_las",
                             Config::by_default() );
     Config config;
     {
@@ -53,13 +53,9 @@ int main( int argc, char **argv )
 
     // Link signals -> slots
 
-    Subscribe subscriber( config );
-    Publish publisher( config );
-    Core core( config );
-
-    subscriber.received.link( &core, &Core::run );
-
-    core.processed.link( &publisher, &Publish::send );
+    Decode decoder( config );
+//    Publish publisher( config );
+//    Core core( config );
 
     //-----------------------------------------------------------------------------------
 

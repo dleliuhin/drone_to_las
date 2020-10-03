@@ -1,11 +1,11 @@
 #========================================================================================
 
-project( cservice_template
+project( lvx_to_las
     LANGUAGES CXX )
 
 #========================================================================================
 
-cmake_minimum_required( VERSION 3.15 )
+cmake_minimum_required( VERSION 3.10 )
 
 #========================================================================================
 
@@ -28,7 +28,11 @@ endif()
 
 #========================================================================================
 
+set( CMAKE_AUTOUIC ON )
+set( CMAKE_AUTOMOC ON )
+set( CMAKE_AUTORCC ON )
 set( CMAKE_CXX_STANDARD 17 )
+set( CMAKE_INCLUDE_CURRENT_DIR ON )
 set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 
@@ -45,6 +49,8 @@ include( ${CMAKE_CURRENT_SOURCE_DIR}/src/src.cmake )
 
 #========================================================================================
 
+find_package( Qt5Core )
+
 add_executable( ${PROJECT_NAME}
     src/main.cpp
     ${CFG}
@@ -55,11 +61,7 @@ target_link_libraries( ${PROJECT_NAME}
     ${VTK_LIBRARIES}
     ${PCL_LIBRARIES}
     ${V_LIBRARIES}
-    -lstdc++fs
+    Qt5::Core
     -ldl )
-
-#========================================================================================
-
-unset ( QT_QMAKE_EXECUTABLE )
 
 #========================================================================================

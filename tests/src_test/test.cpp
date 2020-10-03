@@ -1,4 +1,4 @@
-#include "subscribe_test.h"
+#include "decode_test.h"
 #include "publish_test.h"
 #include "config_test.h"
 #include "core_test.h"

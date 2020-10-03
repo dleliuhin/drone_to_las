@@ -1,2 +1,2 @@
 cd build
-./cservice_template -c ../cfg/cservice_template.cfg -p /tmp/cservice_template
+./lvx_to_las -c ../cfg/lvx_to_las.cfg -p /tmp/lvx_to_las

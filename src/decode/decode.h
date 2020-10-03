@@ -1,7 +1,7 @@
-/*! \file subscribe.h
- * \brief Subscribe class interface.
+/*! \file decode.h
+ * \brief Decode class interface.
  *
- * ZCM message subscriber.
+ * ZCM message decoder.
  *
  * \authors Dmitrii Leliuhin
  * \date July 2020
@@ -17,21 +17,20 @@
 #include "vsignal.h"
 
 //=======================================================================================
-/*! \class Subscribe
- * \brief ZCM message subscriber class.
+/*! \class Decode
+ * \brief ZCM message decoder class.
  */
-class Subscribe
+class Decode
 {
 public:
 
     /*!
      * \param[in] conf Configuration settings.
-     * \details Initialize _zcm node
      */
-    Subscribe( const Config& conf = {} );
+    Decode( const Config& conf = {} );
 
     //! \brief default destructor.
-    ~Subscribe() = default;
+    ~Decode() = default;
 
     //-----------------------------------------------------------------------------------
 
@@ -50,6 +49,9 @@ private:
 
     //! \brief Data aggregated from multiple sensors.
     Pack _pack;
+
+    void _pos( const std::string& path );
+    void _lvx( const std::string& path );
 
 };
 //=======================================================================================

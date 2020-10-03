@@ -15,8 +15,8 @@ make -j $(($(nproc) - 1))
 
 shopt -s extglob
 
-./test_cservice_template
+./test_lvx_to_las
 
 ../../scripts/coverage.sh . ../../doc/coverage | tail -n 3
 
-rm -rf !("test_cservice_template")
+rm -rf !("test_lvx_to_las")

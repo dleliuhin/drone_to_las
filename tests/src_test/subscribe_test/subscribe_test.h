@@ -1,7 +1,7 @@
-/*! \file subscribe_test.h
- * \brief SubscribeTest class interface.
+/*! \file decode_test.h
+ * \brief DecodeTest class interface.
  *
- * Subscribe tests.
+ * Decode tests.
  *
  * \authors Dmitrii Leliuhin
  * \date July 2020
@@ -14,9 +14,9 @@
 #include "gtest/gtest.h"
 
 //=======================================================================================
-/*! \test SubscribeTest
- * \brief The Subscribe class tests
+/*! \test DecodeTest
+ * \brief The Decode class tests
  */
-class SubscribeTest: public testing::Test
+class DecodeTest: public testing::Test
 {};
 //=======================================================================================

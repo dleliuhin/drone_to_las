@@ -25,9 +25,8 @@ Config::Config()
     {
         _schema.subgroup( receive.str );
 
-        _schema.add( "target", &receive.target );
-        _schema.add( "prefix", &receive.channel.prefix );
-        _schema.add( "name",   &receive.channel.name );
+        _schema.add( "pos", &receive.pos );
+        _schema.add( "lvx", &receive.lvx );
 
         _schema.end_subgroup();
     }
@@ -35,9 +34,7 @@ Config::Config()
     {
         _schema.subgroup( send.str );
 
-        _schema.add( "target", &send.target );
-        _schema.add( "prefix", &send.channel.prefix );
-        _schema.add( "name",   &send.channel.name );
+        _schema.add( "las", &send.las );
 
         _schema.end_subgroup();
     }
@@ -55,8 +52,6 @@ Config::Config()
 
         _schema.end_subgroup();
     }
-
-    _fill_ch();
 }
 //=======================================================================================
 
@@ -65,22 +60,11 @@ Config::Config()
 void Config::capture( const vsettings& data )
 {
     _schema.capture( data );
-
-    _fill_ch();
 }
 //=======================================================================================
 vsettings Config::by_default()
 {
     return Config()._schema.build();
-}
-//=======================================================================================
-
-
-//=======================================================================================
-void Config::_fill_ch()
-{
-    receive.channel.full = vcat( receive.channel.prefix, receive.channel.name );
-    send.channel.full    = vcat( send.channel.prefix, send.channel.name );
 }
 //=======================================================================================
 

@@ -73,9 +73,8 @@ public:
     {
         const std::string str { "receive" };
 
-        std::string target { "ipc" };
-
-        Channel channel;
+        std::string pos;
+        std::string lvx;
 
     } receive;
 
@@ -90,9 +89,7 @@ public:
     {
         const std::string str { "send" };
 
-        std::string target { "ipc" };
-
-        Channel channel;
+        std::string las;
 
     } send;
 
@@ -118,9 +115,9 @@ public:
         uint32_t file_sizes { log_size };
         uint16_t rotates { log_rotates };
 
-        bool need_trace   { true };
-        bool need_shared  { true };
-        bool need_leveled { true };
+        bool need_trace   { false };
+        bool need_shared  { false };
+        bool need_leveled { false };
 
         //-------------------------------------------------------------------------------
 

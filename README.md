@@ -1,4 +1,4 @@
-# cservice_template
+# lvx_to_las
 
 [[Build status](http://bamboo.niias/browse/TOOL-CSERVICEBUILD/latest)]
 [[Tests status](http://bamboo.niias/browse/TOOL-CSERVICEBUILD/test)]
@@ -7,7 +7,7 @@
 
 Service for ...
 
-**cservice_template** is the software designed for ... It is developed based on C++17 and provides easy-to-use API. With **cservice_template**, users can quickly connect to ..., receive ... data and transmit decision via ....
+**lvx_to_las** is the software designed for ... It is developed based on C++17 and provides easy-to-use API. With **lvx_to_las**, users can quickly connect to ..., receive ... data and transmit decision via ....
 
 ---
 
@@ -70,7 +70,7 @@ The installation procedures in Linux Ubuntu 16.04/14.04 32-bit LTS or Linux Mint
 Make changes according to task in [configuration file](./cfg).
 
 ```
-cd cservice_template
+cd lvx_to_las
 git checkout release
 ```
 Without [visualization](./doc/README.md): ```./scripts/build.sh``` <br>
@@ -83,11 +83,11 @@ With [visualization](./doc/README.md): ```./scripts/build-gui.sh```
 Or using [Qt Creator IDE](https://www.qt.io/download):
 
 
-Without [visualization](./doc/README.md): **Projects->Run->.*-c ../cservice_template/cfg/cservice_template.cfg -p /tmp/niias/cservice_template<br>
+Without [visualization](./doc/README.md): **Projects->Run->.*-c ../lvx_to_las/cfg/lvx_to_las.cfg -p /tmp/niias/lvx_to_las<br>
 
 With [visualization](./doc/README.md): <br>
 - *Projects->Build->CMake->GUI->ON->Apply Configuration Changes* <br>
-- *Projects->Run->* ```-c ../cservice_template/cfg/cservice_template.cfg -p /tmp/niias/cservice_template``` <br>
+- *Projects->Run->* ```-c ../lvx_to_las/cfg/lvx_to_las.cfg -p /tmp/niias/lvx_to_las``` <br>
 
 You can find more scripts in [scripts/](./scripts).
 
@@ -106,7 +106,7 @@ You can find more scripts in [scripts/](./scripts).
 <a name="contributing"></a>
 ## 7. Contributing
 
-1. Fork it (<http://bb.niias/projects/TOOL/repos/cservice_template/browse>).
+1. Fork it (<http://bb.niias/projects/TOOL/repos/lvx_to_las/browse>).
 2. Read [Readme](./README.md), [License](./doc/LICENSE.md), [Code of Conduct](./doc/CODE_OF_CONDUCT.md) and [Condributing Guidelines][contributing].
 3. Create your fix or feature branch (`git checkout -b feature/name`).
 4. Make changes according to [Condributing Guidelines][contributing].
