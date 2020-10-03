@@ -1,0 +1,9 @@
+[submodule "external/VLib"]
+	path = external/VLib
+	url = https://github.com/dleliuhin/VLib.git
+[submodule "external/args_parser"]
+	path = external/args_parser
+	url = https://github.com/dleliuhin/args_parser.git
+[submodule "external/cpp_codestyle"]
+	path = external/cpp_codestyle
+	url = https://github.com/dleliuhin/cpp_codestyle.git

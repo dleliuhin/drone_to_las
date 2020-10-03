@@ -1,0 +1,28 @@
+# Qt Build temporary files & folders
+build*
+!build.sh
+!build-gui.sh
+!build_all.sh
+*.txt.user
+*user*
+*.save
+*.autosave
+*.clang_tidy
+
+# Temporary user configurations
+CMakeLists.txt.*
+
+# CLion temporary files & folders
+./idea*
+
+# Doxygen temporary files & folders
+doxygen*
+*.info*
+!doc/img/doxygen.png
+
+# Code coverage temporary files & folders
+coverage*
+!doc/img/coverage.png
+
+# CLang-Tidy static analyzer temporary files & folders
+.clang-format
