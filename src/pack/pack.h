@@ -11,37 +11,8 @@
 
 #include "defs.h"
 
-//=======================================================================================
-/*! \class Data
- * \brief Message wrapper class.
- */
-class Data
-{
-public:
-
-    /*! \fn void clear();
-     * \brief Clear data members.
-     */
-    void clear();
-
-    //-----------------------------------------------------------------------------------
-
-    /*! \fn const int64_t & timestamp() const;
-     * \brief timestamp getter.
-     * \return Saved timestamp.
-     */
-    const int64_t & timestamp() const;
-
-    //-----------------------------------------------------------------------------------
-
-private:
-
-    //! \brief Raw data timestamp.
-    int64_t _timestamp {0};
-
-};
-//=======================================================================================
-
+#include <list>
+#include <map>
 
 //=======================================================================================
 struct PosData
@@ -55,6 +26,8 @@ struct PosData
     double yaw {0.};
     double easting {0.};
     double northing {0.};
+
+    uint32_t timestamp_ms {0};
 };
 //=======================================================================================
 
@@ -63,11 +36,12 @@ struct PosData
 /*! \struct Pack
  * \param data ZCM data entry.
  */
-struct Pack
+class Pack
 {
-    Data data;
+public:
 
-    // ... Add new data entry if you need fusion.
+    std::map<uint64_t, PosData> pos;
+    std::map<uint64_t, LivoxPoint> lvx;
 
     //-----------------------------------------------------------------------------------
 

@@ -50,6 +50,8 @@ include( ${CMAKE_CURRENT_SOURCE_DIR}/src/src.cmake )
 
 #========================================================================================
 
+add_subdirectory( ${CMAKE_CURRENT_SOURCE_DIR}/external/Livox-SDK )
+
 find_package( Qt5Core )
 
 add_executable( ${PROJECT_NAME}
