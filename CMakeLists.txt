@@ -9,13 +9,14 @@ cmake_minimum_required( VERSION 3.10 )
 
 #========================================================================================
 
+set( CMAKE_BUILD_TYPE "Debug" )
+
 option( GUI FALSE )
 
 if ( GUI )
-    set( CMAKE_BUILD_TYPE "Debug" )
     add_definitions( -DGUI )
 else()
-    set( CMAKE_BUILD_TYPE "Release" )
+#    set( CMAKE_BUILD_TYPE "Release" )
 endif()
 
 #========================================================================================
@@ -49,6 +50,8 @@ include( ${CMAKE_CURRENT_SOURCE_DIR}/src/src.cmake )
 
 #========================================================================================
 
+add_subdirectory( ${CMAKE_CURRENT_SOURCE_DIR}/external/Livox-SDK )
+
 find_package( Qt5Core )
 
 add_executable( ${PROJECT_NAME}
@@ -63,5 +66,9 @@ target_link_libraries( ${PROJECT_NAME}
     ${V_LIBRARIES}
     Qt5::Core
     -ldl )
+
+#========================================================================================
+
+set( QT_QMAKE_EXECUTABLE )
 
 #========================================================================================

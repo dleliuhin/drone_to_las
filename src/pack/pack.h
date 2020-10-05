@@ -11,34 +11,23 @@
 
 #include "defs.h"
 
+#include <list>
+#include <map>
+
 //=======================================================================================
-/*! \class Data
- * \brief Message wrapper class.
- */
-class Data
+struct PosData
 {
-public:
+    double timestamp {0.};
+    double longitude {0.};
+    double latitude {0.};
+    double height {0.};
+    double roll {0.};
+    double pitch {0.};
+    double yaw {0.};
+    double easting {0.};
+    double northing {0.};
 
-    /*! \fn void clear();
-     * \brief Clear data members.
-     */
-    void clear();
-
-    //-----------------------------------------------------------------------------------
-
-    /*! \fn const int64_t & timestamp() const;
-     * \brief timestamp getter.
-     * \return Saved timestamp.
-     */
-    const int64_t & timestamp() const;
-
-    //-----------------------------------------------------------------------------------
-
-private:
-
-    //! \brief Raw data timestamp.
-    int64_t _timestamp {0};
-
+    uint32_t timestamp_ms {0};
 };
 //=======================================================================================
 
@@ -47,11 +36,12 @@ private:
 /*! \struct Pack
  * \param data ZCM data entry.
  */
-struct Pack
+class Pack
 {
-    Data data;
+public:
 
-    // ... Add new data entry if you need fusion.
+    std::map<uint64_t, PosData> pos;
+    std::map<uint64_t, LivoxPoint> lvx;
 
     //-----------------------------------------------------------------------------------
 

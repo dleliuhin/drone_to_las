@@ -61,15 +61,15 @@ int main( int argc, char **argv )
 
     // GUI in separate thread
 
-#ifdef GUI
-    vthread thread;
-    thread.invoke( [&]
-    {
-        View viewer( sargs.app_name() );
-        core.plot_data.link( &viewer, &View::plot );
-        viewer.run();
-    } );
-#endif
+//#ifdef GUI
+//    vthread thread;
+//    thread.invoke( [&]
+//    {
+//        View viewer( sargs.app_name() );
+//        core.plot_data.link( &viewer, &View::plot );
+//        viewer.run();
+//    } );
+//#endif
 
     //-----------------------------------------------------------------------------------
 
