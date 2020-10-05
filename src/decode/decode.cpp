@@ -20,6 +20,7 @@
 
 static constexpr float mm = 1000.F;
 static constexpr uint8_t delta_ns = 10;
+static constexpr auto write_buf_len  = 1024 * 1024;
 
 const std::map<uint8_t, uint8_t> point_cloud_size =
 {
@@ -171,8 +172,8 @@ LivoxDualExtendSpherPoint decode_dual_ext_spher_pnt( vbyte_buffer_view* view )
 }
 //=======================================================================================
 
-#include <QtMath>
 
+#include <QtMath>
 //=======================================================================================
 template <typename T>
 T to_cartesian( const float theta, const float phi, const float depth )
@@ -209,7 +210,6 @@ T mm_to_meters( const int32_t x, const int32_t y, const int32_t z )
 //=======================================================================================
 
 
-
 //=======================================================================================
 void Decode::_lvx( const std::string& path )
 {
@@ -241,7 +241,7 @@ void Decode::_lvx( const std::string& path )
     }
 
     if ( public_header.magic_code != magic_code )
-        throw verror << "Bad magic number";
+        throw verror << "Bad magic number in" << path;
 
     // Private Header Block
 
@@ -277,18 +277,15 @@ void Decode::_lvx( const std::string& path )
 
     // Point Cloud Data Block
 
-    FrameHeader frame_header;
-    {
-        frame_header.current_offset = view.u64_LE();
-        frame_header.next_offset    = view.u64_LE();
-        frame_header.frame_index    = view.u64_LE();
-    }
-
-    LvxBasePackDetail prev_package;
-    LidarSetUtcSyncTimeRequest prev_ts;
-
     while ( view.remained() > 0 )
     {
+        FrameHeader frame_header;
+        {
+            frame_header.current_offset = view.u64_LE();
+            frame_header.next_offset    = view.u64_LE();
+            frame_header.frame_index    = view.u64_LE();
+        }
+
         LvxBasePackDetail package;
         {
             package.device_index = view.u8();
@@ -303,6 +300,10 @@ void Decode::_lvx( const std::string& path )
             for ( auto i = 0; i < 8; ++i )
                 package.timestamp[i] = 0;
 
+            package.pack_size = sizeof( LvxBasePackDetail ) - sizeof( package.raw_point ) -
+                    sizeof( package.pack_size ) + point_cloud_size.find(1)->second *
+                    sizeof ( LivoxSpherPoint ) * sizeof( LivoxSpherPoint );
+
             LidarSetUtcSyncTimeRequest ts;
             ts.year = view.u8();
             ts.month = view.u8();
@@ -315,14 +316,9 @@ void Decode::_lvx( const std::string& path )
                  ( ts.day <= 0 ) || ( ts.day > 31 ) ||
                  ( ts.hour < 0 ) || ( ts.hour > 24 ) )
             {
-//                vdeb << +ts.year << +ts.month << +ts.day << +ts.hour << ts.mircrosecond;
-
-                view.omit( point_cloud_size.find( package.data_type )->second * sizeof ( LivoxSpherPoint ) );
+                view.omit( point_cloud_size.find(1)->second * sizeof ( LivoxSpherPoint ) );
                 continue;
             }
-
-            prev_package = package;
-            prev_ts = ts;
 
             auto year = vcat::from_text<int>( "20" + std::to_string( ts.year ) );
 
@@ -335,7 +331,7 @@ void Decode::_lvx( const std::string& path )
 
             if ( ts.day <= cur_day )
             {
-                view.omit( point_cloud_size.find( package.data_type )->second * sizeof ( LivoxSpherPoint ) );
+                view.omit( point_cloud_size.find(1)->second * sizeof ( LivoxSpherPoint ) );
                 continue;
             }
 
@@ -405,6 +401,8 @@ void Decode::_lvx( const std::string& path )
 
                 last_ns += delta_ns;
             }
+
+            last_ns = week_ns;
         }
     }
 }
