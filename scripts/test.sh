@@ -15,8 +15,8 @@ make -j $(($(nproc) - 1))
 
 shopt -s extglob
 
-./test_lvx_to_las
+./test_drone_to_las
 
 ../../scripts/coverage.sh . ../../doc/coverage | tail -n 3
 
-rm -rf !("test_lvx_to_las")
+rm -rf !("test_drone_to_las")

@@ -19,7 +19,7 @@ List of imitation tests (necessary when developing drivers for sensors).
 Start unit tests with code coverage:<br/>
 
 ```
-cd lvx_to_las
+cd drone_to_las
 git checkout release
 ./scripts/test.sh
 ```

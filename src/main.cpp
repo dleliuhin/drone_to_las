@@ -41,7 +41,7 @@ int main( int argc, char **argv )
     // Parse config && create PID
 
     service::arguments sargs( argc, argv,
-                            "lvx_to_las",
+                            "drone_to_las",
                             Config::by_default() );
     Config config;
     {

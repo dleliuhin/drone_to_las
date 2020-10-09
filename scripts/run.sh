@@ -1,2 +1,2 @@
 cd build
-./lvx_to_las -c ../cfg/lvx_to_las.cfg -p /tmp/lvx_to_las
+./drone_to_las -c ../cfg/drone_to_las.cfg -p /tmp/drone_to_las

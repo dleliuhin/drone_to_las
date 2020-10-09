@@ -4,6 +4,6 @@ Configuration file parsing class test.
 
 ---
 
-See description of [configuration file](http://bb.niias/projects/TOOL/repos/lvx_to_las/browse/cfg).
+See description of [configuration file](http://bb.niias/projects/TOOL/repos/drone_to_las/browse/cfg).
 
 ---
